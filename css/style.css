@@ -1,0 +1,459 @@
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background-image: url("../images/small_check.jpg");
+    background-size: 100%;
+    padding: 15px;
+}
+
+.container {
+    max-width: 1200px;
+    border: 5px solid #4c96d7;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.header a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #3a3a3a;
+}
+
+.header .welcome-message {
+    font-size: 18px;
+    border-right: 1px solid #454545;
+    padding-right: 10px;
+}
+
+/* MENU */
+.menu {
+    background-color: #3a3a3a;
+    padding: 0 15px;
+}
+
+.menu ul {
+    padding: 20px 0;
+}
+
+.menu li {
+    display: inline;
+    padding: 20px 0;
+    margin: 0 10px;
+}
+
+.menu li.active {
+    background-color: #3457ff;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    
+}
+
+.menu li:first-child {
+    margin-left: 0;
+}
+
+/* CONTENT */
+.main {
+    padding: 15px;
+    position: relative;
+}
+
+.main .name-user {
+    color: #ff2200;
+}
+
+.main .data-user {
+    margin-top: 15px;
+}
+
+.main .inventory-access {
+    margin-top: 20px;
+}
+
+.data-user ul {
+    padding-left: 20px;
+}
+
+.main h2 {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.main .img-car{
+    width: 100%;
+}
+
+.main .img-own {
+    position: absolute;
+    top: 205px;
+    width: 190px;
+}
+
+.main .info-car {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    position: absolute;
+    left: 15px;
+    top: 95px;
+}
+
+.main .info-car h3 {
+    width: 100%;
+    color: #4c96d7;
+    font-size: 24px;
+}
+
+.main .info-car p {
+    width: 100%;
+    color: #4c96d7;
+    font-size: 22px;
+}
+
+.main .info-car img {
+    margin-top: 25px;
+    width: 180px;
+}
+
+.main .error-connection-title {
+    text-align: center;
+}
+
+.main .error-connection-message {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.secondary {
+    display: flex;
+    margin-top: 50px;
+    padding: 0 30px;
+}
+
+.secondary h3 {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.secondary .upgrades {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-right: 50px;
+    box-sizing: border-box;
+}
+
+.secondary .upgrades .upgrade {
+    width: calc(50% - 10px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-right: 10px;
+}
+
+.secondary .upgrades .upgrade div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4c96d7;
+    height: 85px;
+}
+
+.secondary .upgrades .img-upgrade img{
+    height: 70px;
+}
+
+.secondary .reviews {
+    width: 50%;
+}
+
+.secondary .reviews ul {
+    margin-left: 30px;
+}
+
+.secondary .reviews ul li {
+    margin-top: 20px;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    max-width: 320px;
+}
+
+form label, form input {
+    width: 100%;
+    margin-top: 5px;
+}
+
+form button {
+    background-color: #4c96d7;
+    padding: 3px 10px;
+    margin-top: 10px;
+}
+
+form div {
+    width: 100%;
+}
+
+.not-a-member {
+    margin-top: 15px;
+    display: inline-flex;
+    color: #454545;
+}
+
+.show-password {
+    background-color: #3a3a3a;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.reminder {
+    font-size: 12px;
+    color: #009393;
+}
+
+.account-management {
+    margin-top: 25px;
+}
+
+/* TABLE */
+#inventoryRecords {
+    margin-top: 20px;
+    width: 400px
+}
+
+#inventoryRecords tr{
+    height: 35px;
+}
+
+#inventoryRecords tr:nth-child(odd) {
+    background-color: #c1c1c1;
+}
+
+#inventoryRecords thead tr th {
+    background-color: #454545;
+    color: #fff;
+}
+
+#inventoryRecords .edit-inventory, #inventoryRecords .delete-inventory {
+    color: #fff;
+    padding: 3px 5px;
+    text-decoration: none;
+}
+
+#inventoryRecords .edit-inventory { 
+    background-color: #576bab;
+}
+
+#inventoryRecords .delete-inventory {
+    background-color: #cf1f4f;
+}
+
+/* FOOTER */
+.footer {
+    border-top: 2px solid #3a3a3a;
+    margin-top: 25px;
+    padding: 15px 0;
+}
+
+.footer p {
+    text-align: center;
+    line-height: 28px;
+}
+
+/* VEHICLES PAGE */
+.vehicle-links {
+    margin-top: 15px;
+}
+
+.vehicle-links a {
+    background-color: #4c96d7;
+    color: #fff;
+    text-decoration: none;
+    padding: 2px 5px;
+}
+
+#vehicle-classification {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.message-success {
+    color: #4bab2b;
+}
+
+.message-error {
+    color: red;
+}
+
+
+/* MEDIA QUERIES */
+@media(max-width: 768px){
+    body {
+        padding: 0;
+    }
+
+    .container{
+        border: none;
+    }
+
+    .main .info-car{
+        top: 45px;
+    }
+
+    .main .img-own {
+        position: absolute;
+        top: auto;
+        width: 160px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -35px;
+    }
+
+    .secondary {
+        flex-wrap: wrap;
+    }
+
+    .secondary h3 {
+        text-align: center;
+    }
+
+    .secondary .upgrades, .secondary .reviews {
+        width: 100%;
+    }
+
+    .secondary .upgrades {
+        justify-content: center;
+        padding-right: 0;
+    }
+
+    .secondary .upgrades .upgrade {
+        max-width: 210px;
+    }
+
+    .footer {
+        padding: 15px;
+    }
+
+}
+
+@media(max-width: 625px){
+    .main .info-car{
+        top: 60px;
+    }
+
+    .main .info-car h3, .main .info-car p {
+        font-size: 20px;
+    }
+
+    .secondary {
+        margin-top: 50px;
+    }
+
+    #inventoryRecords {
+        width: 360px;
+    }
+}
+
+@media(max-width: 540px){
+
+    .menu li {
+        margin: 0 5px;
+    }
+
+    .main .info-car img {
+        width: 150px;
+    }
+
+    .main .info-car {
+        top: 55px;
+        width: 140px;
+    }
+
+    .main .img-car {
+        margin-top: 50px;
+    }
+
+    .main .info-car h3, .main .info-car p {
+        font-size: 18px;
+    }
+
+    .secondary {
+        margin-top: 70px;
+    }
+
+}
+
+@media(max-width: 400px){
+
+    .header a img {
+        width: 160px;
+    }
+
+    .main .info-car h3, .main .info-car p {
+        font-size: 16px;
+    }
+
+    .main .img-car {
+        margin-top: 50px;
+    }
+
+    .menu {
+        text-align: center;
+        padding: 20px 5px;
+    }
+
+    .menu li {
+        margin: 0;
+    }
+
+    .secondary {
+        margin-top: 90px;
+    }
+
+    .upgrade a {
+        text-align: center;
+    }
+
+    .main .info-car img {
+        width: 130px;
+    }
+
+    .main .img-own {
+        bottom: -50px;
+    }
+
+    
+    #inventoryRecords {
+        width: 320px;
+    }
+}
