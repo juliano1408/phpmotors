@@ -34,7 +34,7 @@
             <li>Last name: <?php echo $lastName;?></li>
             <li>Email: <?php echo $email;?></li>
         </ul>
-    </div>
+    <div>
 
     <div class='account-management'>
         <h3>Account Management</h3>

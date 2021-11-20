@@ -277,6 +277,88 @@ form div {
     background-color: #cf1f4f;
 }
 
+/* CLASSIFICATION */
+#inv-display {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#inv-display a {
+    text-decoration: none;
+    color: #454545;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#inv-display li {
+    margin-bottom: .5em;
+    border: 1px #ccc solid;
+    list-style-type: none;
+    width: calc(100%/4 - 20px);
+    margin: 0 5px;
+    text-align: center;
+}
+
+#inv-display li h3{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#inv-display li img {
+    max-width: 100%;
+    height: 100px;
+}
+
+/* INV DETAILS */
+.vehicle-details {
+    margin-top: 20px;
+    display: flex;
+}
+
+.vehicle-details .img {
+    flex: 1 1 auto;
+} 
+
+.vehicle-details .car-details {
+    width: 500px;
+    flex: 0 0 auto;
+    padding-right: 20px;
+}
+
+.vehicle-details .car-details h3 {
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+.car-details p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.car-details p span{
+    font-weight: bold;
+}
+
+.car-details .desc {
+    background-color: #e5e5e5;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-align: justify;
+    border: 1px solid #c4c4c4;
+    margin-top: 19px;
+}
+
+.img img {
+    width: 95%;
+}
+
 /* FOOTER */
 .footer {
     border-top: 2px solid #3a3a3a;
@@ -317,6 +399,12 @@ form div {
 
 
 /* MEDIA QUERIES */
+@media(max-width: 967px){
+    .vehicle-details .car-details {
+        width: 400px;
+    }
+}
+
 @media(max-width: 768px){
     body {
         padding: 0;
@@ -364,6 +452,23 @@ form div {
         padding: 15px;
     }
 
+    #inv-display li {
+        width: calc(100%/3 - 20px);
+        margin-bottom: 10px;
+    }
+
+    .vehicle-details .car-details {
+        width: 320px;
+    }
+
+    .vehicle-details .car-details h3 {
+        font-size: 20px;
+    }
+
+    .vehicle-details .car-details p {
+        font-size: 16px;
+    }
+
 }
 
 @media(max-width: 625px){
@@ -381,6 +486,24 @@ form div {
 
     #inventoryRecords {
         width: 360px;
+    }
+
+    #inv-display li {
+        width: calc(100%/2 - 20px);
+    }
+
+    .vehicle-details {
+        flex-wrap: wrap;
+        padding-right: 20px;
+    }
+
+    .img img {
+        width: 100%;
+    }
+
+    .vehicle-details .car-details {
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -411,6 +534,11 @@ form div {
         margin-top: 70px;
     }
 
+    #inv-display li {
+        width: calc(100% - 20px);
+        margin-right: 10px;
+    }
+
 }
 
 @media(max-width: 400px){
@@ -430,6 +558,11 @@ form div {
     .menu {
         text-align: center;
         padding: 20px 5px;
+    }
+
+    .menu ul{
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .menu li {

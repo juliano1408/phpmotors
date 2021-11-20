@@ -4,18 +4,11 @@ session_start();
 
 require_once 'connection/connection.php';
 require_once 'model/main-model.php';
+require_once 'library/functions.php';
 
 $classifications = getClassifications();
 
-$navigationList = "<ul>";
-$navigationList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
-
-foreach ($classifications as $classification) {
-    $navigationList .= "<li><a href='/phpmotors/index.php?action=" .urlencode($classification['classificationName']). "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-
-}
-
-$navigationList .= "</ul>";
+$navigationList = buildNavigation($classifications);
 
 $action = filter_input(INPUT_POST, 'action');
 

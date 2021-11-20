@@ -100,7 +100,6 @@ function deleteVehicle($vehicleId) {
     return $rowsChanged;
 }
 
-
 function getInventoryByClassification($classificationId) { 
 
     $db = createConnection(); 
@@ -119,7 +118,6 @@ function getInventoryByClassification($classificationId) {
     return $inventory; 
 }
 
-
 function getInvItemInfo($invId) {
 
     $db = createConnection();
@@ -136,4 +134,27 @@ function getInvItemInfo($invId) {
     $stmt->closeCursor();
 
     return $invInfo;
+}
+
+function getVehiclesByClassification($classificationName){
+
+    $db = createConnection();
+
+    $sql = "SELECT * 
+            FROM inventory 
+            WHERE classificationId IN (
+                SELECT classificationId 
+                FROM carclassification 
+                WHERE classificationName = :classificationName
+            )";
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
+    $stmt->execute();
+
+    $vehicles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+
+    return $vehicles;
+
 }

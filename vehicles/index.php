@@ -159,7 +159,6 @@ switch ($action) {
         $carMake = filter_input(INPUT_POST, 'carMake', FILTER_SANITIZE_STRING);
         $carModel = filter_input(INPUT_POST, 'carModel', FILTER_SANITIZE_STRING);
 
-
         $deleteInventory = deleteVehicle($carId);
 
         if ($deleteInventory === 1) {
@@ -172,6 +171,36 @@ switch ($action) {
             $message = "<p class=\"message-error\">There was a problem deleting the register $carMake:$carModel. Please try again.</p>";
             include '../view/vehicle-delete.php';
             exit;
+        }
+
+        break;
+
+    case 'classification':
+
+        $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_STRING);
+        $vehicles = getVehiclesByClassification($classificationName);
+
+        if(!count($vehicles)) {
+            $message = "<p class='notice'>Sorry, no $classificationName vehicles could be found.</p>";
+        } else {
+            $vehiclesDisplay = buildVehiclesDisplay($vehicles);
+        }
+
+        include '../view/classification.php';
+
+        break;
+
+    case 'vehicle-view':
+
+        $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+
+        $vehicle = getInvItemInfo($invId);
+
+        if (!empty($vehicle)) {
+            $vehicleDetailsDisplay = buildVehicleDisplay($vehicle);
+            include '../view/vehicle-detail.php';            
+        } else {
+            $message = "<p>Sorry, $vehicle[invMake] $vehicle[invModel] wasn't found in the registers.";
         }
 
         break;

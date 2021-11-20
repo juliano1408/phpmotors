@@ -5,7 +5,6 @@
     if (!isset($_SESSION['loggedin'])) {
         header('Location: /phpmotors');
     }
-
 ?>
 
 <section class="main">
