@@ -123,8 +123,11 @@ function getInvItemInfo($invId) {
     $db = createConnection();
 
     $sql = "SELECT * 
-            FROM inventory 
-            WHERE invId = :invId";
+            FROM images ima
+            JOIN inventory inv
+            ON ima.invId = inv.invId
+            WHERE ima.invId = :invId
+            GROUP BY ima.invId";
 
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
@@ -141,12 +144,14 @@ function getVehiclesByClassification($classificationName){
     $db = createConnection();
 
     $sql = "SELECT * 
-            FROM inventory 
-            WHERE classificationId IN (
+            FROM images ima
+            JOIN inventory inv 
+            ON ima.invId = inv.invId
+            WHERE inv.classificationId IN (
                 SELECT classificationId 
                 FROM carclassification 
                 WHERE classificationName = :classificationName
-            )";
+            ) GROUP BY ima.invId";
 
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
@@ -157,4 +162,20 @@ function getVehiclesByClassification($classificationName){
 
     return $vehicles;
 
+}
+
+function getVehicles(){
+
+	$db = createConnection();
+
+	$sql = "SELECT invId, invMake, invModel 
+            FROM inventory";
+
+	$stmt = $db->prepare($sql);
+	$stmt->execute();
+
+	$invInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	$stmt->closeCursor();
+
+	return $invInfo;
 }

@@ -1,4 +1,5 @@
 <?php 
+
     if (isset($vehicle['invMake']) && isset($vehicle['invModel'])){
         $vehicleName = $vehicle['invMake'] . " " .$vehicle['invModel'];
         $titleElement = "<title>" . $vehicleName . "</title>";

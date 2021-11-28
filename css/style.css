@@ -371,6 +371,39 @@ form div {
     line-height: 28px;
 }
 
+/* IMAGE UPLOAD */
+#image-upload {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#image-upload label {
+    width: 100%;
+}
+
+#image-upload input, #image-upload label {
+    width: auto !important;
+}
+
+#image-upload input {
+    margin-right: 30px;
+}
+
+ul#image-display {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+ul#image-display li {
+    text-align: center;
+    width: 50%;    
+    flex-direction: column;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+}
+
 /* VEHICLES PAGE */
 .vehicle-links {
     margin-top: 15px;

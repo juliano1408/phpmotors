@@ -1,7 +1,7 @@
 <?php 
 
     if (isset($classificationName)){
-        $titleElement = "<title>" . $classificationName . "</title>";
+        $titleElement = "<title>Classification:" . $classificationName . "</title>";
     }
 
     require_once '../includes/header.php';
