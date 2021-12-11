@@ -2,10 +2,11 @@
     require_once '../includes/header.php';
     require_once '../includes/menu.php';
 
-    if ($_SESSION['clientLevel'] < 2) {
+    if ($_SESSION['clientData']['clientLevel'] < 2) {
         header('Location: /phpmotors/');
         exit;
     }
+
 ?>
 
 <section class="main">

@@ -87,6 +87,30 @@ function buildVehicleDisplay($vehicle) {
 
 }
 
+function makeThumbnailVehicle($vehicleThumbnails) {
+
+    $thumbnails_display = "";
+
+    if(!empty($vehicleThumbnails)) {
+
+        $thumbnails_display .= "<div class='vehicle-thumbnails'>";
+
+        foreach($vehicleThumbnails as $thumbnail) {
+
+            $thumbnails_display .= "<img class='thumbnail' src='http://localhost/$thumbnail[imgPath]' alt='Image of $thumbnail[invMake] $thumbnail[invModel] on phpmotors.com'>";
+   
+        }
+
+        $thumbnails_display .= "</div>";
+
+    }
+
+    return $thumbnails_display;
+
+}
+
+
+
 function makeThumbnailName($image) {
     $i = strrpos($image, '.');
     $image_name = substr($image, 0, $i);

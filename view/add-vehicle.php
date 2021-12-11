@@ -3,7 +3,7 @@
     require_once '../includes/menu.php';
     require_once '../model/main-model.php';
 
-    if ($_SESSION['clientLevel'] < 2) {
+    if ($_SESSION['clientData']['clientLevel'] < 2) {
         header('Location: /phpmotors/');
         exit;
     }

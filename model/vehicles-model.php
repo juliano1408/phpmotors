@@ -127,6 +127,7 @@ function getInvItemInfo($invId) {
             JOIN inventory inv
             ON ima.invId = inv.invId
             WHERE ima.invId = :invId
+            AND ima.imgPrimary = 1
             GROUP BY ima.invId";
 
     $stmt = $db->prepare($sql);
@@ -137,6 +138,28 @@ function getInvItemInfo($invId) {
     $stmt->closeCursor();
 
     return $invInfo;
+}
+
+function getThumbnailsInv($invId) {
+
+    $db = createConnection();
+
+    $sql = "SELECT * 
+            FROM images ima
+            JOIN inventory inv
+            ON ima.invId = inv.invId
+            WHERE ima.invId = :invId
+            AND ima.imgPrimary = 0
+            AND MOD(ima.imgId, 2) <> 0";
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $thumbnails = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+
+    return $thumbnails;
 }
 
 function getVehiclesByClassification($classificationName){

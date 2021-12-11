@@ -9,6 +9,9 @@ require_once '../library/functions.php';
 /** Getting the vehicles model */
 require_once '../model/vehicles-model.php';
 
+/** Getting the reviews model */
+require_once '../model/reviews-model.php';
+
 $classifications = getClassifications();
 
 $navigationList = buildNavigation($classifications);
@@ -195,9 +198,12 @@ switch ($action) {
         $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
 
         $vehicle = getInvItemInfo($invId);
+        $vehicleThumbnails = getThumbnailsInv($invId);
+        $reviewsInv = getReviewsByInvId($invId);
 
         if (!empty($vehicle)) {
             $vehicleDetailsDisplay = buildVehicleDisplay($vehicle);
+            $vehicleThumbnailsDisplay = makeThumbnailVehicle($vehicleThumbnails);
             include '../view/vehicle-detail.php';            
         } else {
             $message = "<p>Sorry, $vehicle[invMake] $vehicle[invModel] wasn't found in the registers.";

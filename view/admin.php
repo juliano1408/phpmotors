@@ -52,7 +52,35 @@
     </div>
     <?php 
         }
+
+        if(isset($_SESSION['messageData']['review'])){
+            $message = $_SESSION['messageData']['review'];
+            echo "<p class='message-review'>$message</p>";
+        } 
+
+        if(isset($clientsReview)) {
+
+            echo "<div class='clients-review'>";
+
+            echo "<h3>Your reviews</h3>";
+
+            foreach($clientsReview as $review) {
+
+                echo "<div class='client-review'>";
+                echo "<div class='inv'>$review[invMake] - $review[invModel]</div>";
+                echo "<div class='text'>$review[reviewText]</div>";
+                echo "<div class='date'>$review[reviewDate]</div>";
+                echo "<div><a href='/phpmotors/reviews/?action=edit-review&reviewId=$review[reviewId]'>Edit</a><a href='/phpmotors/reviews/?action=delete-view&reviewId=$review[reviewId]'>Delete</a></div>";
+                echo "</div>";
+
+            }
+
+            echo "</div>";
+
+        }
     ?>
+
+
 </section>
 
 <?php 

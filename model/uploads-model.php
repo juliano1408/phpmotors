@@ -1,5 +1,7 @@
 <?php 
 
+/** Uploads model */
+
 function storeImages($imgPath, $invId, $imgName, $imgPrimary) {
 
     $db = createConnection();
@@ -26,6 +28,7 @@ function storeImages($imgPath, $invId, $imgName, $imgPrimary) {
 
     $rowsChanged = $stmt->rowCount();
     $stmt->closeCursor();
+    
     return $rowsChanged;
 
 }

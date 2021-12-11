@@ -1,7 +1,6 @@
 <?php 
 /** Accounts model */
 
-
 /**
 * Handle site registrations
 */
@@ -70,7 +69,6 @@ function getClient($email) {
 
     return $clientData;
 }
-
 
 function updateClient($clientFirstName, $clientLastName, $clientEmail) {
     

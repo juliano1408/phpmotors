@@ -9,6 +9,9 @@ require_once '../library/functions.php';
 /** Getting the account model */
 require_once '../model/accounts-model.php';
 
+/** Getting the review model */
+require_once '../model/reviews-model.php';
+
 $classifications = getClassifications();
 
 $navigationList = buildNavigation($classifications);
@@ -24,6 +27,7 @@ if(isset($_COOKIE['firstname'])){
 }
 
 switch ($action){
+
     case 'loginUser';
         $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
         $clientEmail = checkEmail($clientEmail);
@@ -49,6 +53,9 @@ switch ($action){
 
         $_SESSION['loggedin'] = true;
 
+        $clientId = $clientData['clientId'];
+        $clientsReview = getReviewsByClient($clientId);
+        
         array_pop($clientData);
 
         $_SESSION['clientData'] = $clientData;
@@ -184,6 +191,12 @@ switch ($action){
             break;
 
     default:
+        
+        if ($_SESSION['loggedin']) {
+            $clientId = $_SESSION['clientData']['clientId'];
+            $clientsReview = getReviewsByClient($clientId);
+        }
+            
         include '../view/admin.php';
         break;
 }
